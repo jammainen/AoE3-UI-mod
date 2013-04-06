@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+	<gadget name="homecitytransportpanel-header" type="homeCityTransportPanelHeader" size1024="0 0 226 68" background="ui\home_city\HC_UI_tabs" z="5" texturecoords="0.55859375 0.0 1.0 0.265625">
+		<gadget name="homecitytransportpanel-homecityPlayer" textjustifyleft="" type="formatText" size1024="228 0 500 34" donthighlight="" textcolor="255 255 255" textfont="GoalText" textfontsize="18" textcentervert="" z="12" datarefreshrate="200"/>
+		<gadget name="homecitytransportpanel-homecityName" textjustifyleft="" type="formatText" size1024="228 34 500 68" donthighlight="" textcolor="255 255 255" textfont="GoalText" textfontsize="18" textcentervert="" z="12" datarefreshrate="200"/>
+		<gadget name="homecitytransportpanel-homecityAge" type="formatText" textcentervert="" textcenterhoriz="" transparent="" textcolor="255 255 255" datarefreshrate="200" z="15" textfont="AgeText" textfontsize="12" size1024="28 8 197 26"/>
+		<gadget name="homecitytransportpanel-AgeAdvFG" type="gadget" size1024="28 8 197 26" background="ui\ingame\ingame_ui_02x_ypack" z="14" texturecoords="0.609375 0.302734375 0.939453125 0.33984375"/>
+		<gadget name="homecitytransportpanel-homecityLevel" type="formatText" size1024="12 37 87 56" donthighlight="" textcolor="255 255 255" textfont="AgeText" textfontsize="12" textcentervert="" textcenterhoriz="" z="12"/>
+		<gadget name="homecitytransportpanel-homecityxpbar" type="gadget" size1024="12 57 87 63" donthilight="" background="ui\core_ui\xp-bar_empty" texturecoords="0 0 0.5859375 0.75" z="13"/>
+		<gadget name="homecitytransportpanel-homecityxpbarfill" type="gadget" size1024="12 57 87 63" donthilight="" background="ui\core_ui\xp-bar_full" texturecoords="0 0 0.5859375 0.75" z="14"/>
+		<gadget name="homecitytransportpanel-homecityExp" type="formatText" size1024="92 37 215 56" donthighlight="" textcolor="255 255 255" textfont="AgeText" textfontsize="12" textcentervert="" textcenterhoriz="" z="12"/>
+	</gadget>
+</layout>

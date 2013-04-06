@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+	<gadget name="minimapPanel" type="gadget" size1024="0 628 342 768" background="" z="10">
+		<gadget name="minimapPanel-Minimap-Back" type="gadget" size1024="0 628 220 768" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleVillager-Back" type="gadget" size1024="222 628 250 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleWagon-Back" type="gadget" size1024="252 628 280 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleLandMilitary-Back" type="gadget" size1024="282 628 310 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleNavalMilitary-Back" type="gadget" size1024="312 628 340 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-HC-Back" type="gadget" size1024="222 646 280 678" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-Pop-Back" type="gadget" size1024="282 646 340 678" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-BuyFood-Back" type="gadget" size1024="222 680 250 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-BuyWood-Back" type="gadget" size1024="252 680 280 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-SellFood-Back" type="gadget" size1024="282 680 310 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-SellWood-Back" type="gadget" size1024="312 680 340 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-XPNeeded-Back" hidden="" type="gadget" size1024="222 680 340 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<position name="AGameMinimap" size1024="9 566 212 768" windowzstyle="" z="15"/>
+		<gadget name="minimapPanel-map" type="gadget" size1024="22 632 152 765" z="10"/>
+		<gadget name="minimapPanel-chat" type="stateButton" z="16" size1024="0 708 64 772" texturecoords="0 0 1 1" mouseovertext="$$21431$$" anchortooltiptopright="" statebuttonuseinternalstates="" activateondown="" clickthrufile="ui\ingame\ingame_minimap_small_chat_normal_ypack" clickthrucoords="0 0 1 1">
+			<command>uiShowChatWindow()</command>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_normal_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_depressed_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_active_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_active_ypack"/>
+		</gadget>
+		<gadget name="minimapPanel-flareButton" type="stateButton" z="16" size1024="0 708 64 772" texturecoords="0 0 1 1" mouseovertext="$$18424$$Click this button, and then click in the world to send a flare to all other players." anchortooltiptopright="" clampforeground="" clampbackground="" statebuttonuseinternalstates="" activateondown="" clickthrufile="ui\ingame\ingame_minimap_small_flare_normal_ypack" clickthrucoords="0 0 1 1">
+			<command>editMode("flare") uiSetProtoCursor("WaypointFlag")</command>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_normal_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_depressed_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_active_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_active_ypack"/>
+		</gadget>
+		<gadget name="minimapPanel-FilterToggle" type="stateButton" z="16" size1024="156 708 220 772" mouseovertext="$$36021$$" anchortooltiptopright="" keepflashingonactivate="" statebuttonuseinternalstates="" activateondown="" textfont="SmallButtonFont" textfontsize="10" textcolor="255 255 255" background="" clickthrufile="ui\ingame\ingame_minimap_small_all_normal_ypack" clickthrucoords="0 0 1 1">
+			<leftcommand>setMinimapUnitFilter(-1)</leftcommand>
+		</gadget>
+		<gadget name="minimapPanel-explorerButton" type="stateButton" z="16" size1024="156 708 220 772" texturecoords="0 0 1 1" mouseovertext="Move All Military" anchortooltiptopright="" clampforeground="" clampbackground="" statebuttonuseinternalstates="" activateondown="" clickthrufile="ui\ingame\ingame_minimap_small_tribute_normal_ypack" clickthrucoords="0 0 1 1">
+			<command>editMode("moveAllMilitary") uiSetProtoCursor("WaypointFlag")</command>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_normal_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_depressed_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_active_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_active_ypack"/>
+		</gadget>
+	</gadget>
+	<gadget name="IdleVillager-Value" size1024="222 626 250 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(AbstractVillager)}</gadget>
+	<gadget name="IdleVillager-Button" type="button" z="100" size1024="222 628 250 644" mouseovertext="Idle Villagers" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("AbstractVillager")</command>
+	</gadget>
+	<gadget name="IdleWagon-Value" size1024="252 626 280 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 255" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(AbstractWagon)}</gadget>
+	<gadget name="IdleWagon-Button" type="button" z="100" size1024="252 628 280 644" mouseovertext="Idle Wagon" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("AbstractWagon")</command>
+	</gadget>
+	<gadget name="IdleLandMilitary-Value" size1024="282 626 310 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="0 255 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(LogicalTypeLandMilitary)}</gadget>
+	<gadget name="IdleLandMilitary-Button" type="button" z="100" size1024="282 628 310 644" mouseovertext="Idle Land Military" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("LogicalTypeLandMilitary")</command>
+	</gadget>
+	<gadget name="IdleNavalMilitary-Value" size1024="312 626 340 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="0 191 255" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(AbstractWarShip)}</gadget>
+	<gadget name="IdleNavalMilitary-Button" type="button" z="100" size1024="312 628 340 644" mouseovertext="Idle Naval Military" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("AbstractWarShip")</command>
+	</gadget>
+	<gadget name="CameraNormal1" type="Button" size1024="282 646 340 662" z="151" mouseovertext="$$32714$$" anchortooltiptopright="" sound="UI_DefaultPregameClickSet" foreground="">
+		<command>configSetInt("limitPitch",47) configSetInt("minZoom",29) configSetInt("maxZoom",60) cameraRotate() cameraRotate()</command>
+	</gadget>
+	<gadget name="CameraNormal2" type="Button" size1024="282 662 311 678" z="151" mouseovertext="Total Villager" anchortooltiptopright="" sound="UI_DefaultPregameClickSet" foreground="">
+		<command>uiFindType("AbstractVillager")</command>
+	</gadget>
+	<gadget name="CameraNormal3" type="Button" size1024="311 662 340 678" z="151" mouseovertext="Total Military" anchortooltiptopright="" sound="UI_DefaultPregameClickSet" foreground="">
+		<command>uiFindType("Military")</command>
+	</gadget>
+	<gadget name="PopPopcap" type="formatText" size1024="280 646 342 662" datarefreshrate=".5" textcolor="255 255 255" z="109" mouseovertext="$$32714$$" anchortooltiptopright="" textfont="NumbersFont" textcenterhoriz="" textfontsize="12" background="">{totalPop} / {popcap}</gadget>
+	<gadget name="TotalVillager" type="formatText" size1024="282 662 311 678" datarefreshrate=".5" textcolor="255 255 0" z="150" textfont="NumbersFont" textcenterhoriz="" textfontsize="12" background="">{numUnits(AbstractVillager)} <command>uiFindType("AbstractVillager")</command></gadget>
+	<gadget name="TotalMilitary" type="formatText" size1024="311 662 340 678" datarefreshrate=".5" textcolor="255 0 0" z="150" textfont="NumbersFont" textcenterhoriz="" textfontsize="12" background="">{numUnits(Military)} <command>uiFindType("AbstractVillager")</command></gadget>
+	<gadget name="shipsDisplay" type="textBox" size1024="256 651 280 663" textcenterhoriz="" textcentervert="" transparent="" datarefreshrate=".5" textcolor="255 255 255" z="21" textfont="TimerDisplays" textfontsize="12">{resource(ships)}</gadget>
+	<gadget name="uimain-homeCityToggle" type="stateButton" z="16" size1024="222 646 280 671" mouseovertext="$$43039$$" anchortooltiptopright="" keepflashingonactivate="" statebuttonuseinternalstates="" activateondown="" textfont="SmallButtonFont" textfontsize="10" textcolor="255 255 255" background="" sound="UI_DefaultPregameClickSet">
+		<leftcommand>toggleHomeCityView()</leftcommand>
+	</gadget>
+	<gadget name="shipsDisplayBG" type="gadget" size1024="256 655 280 671" z="20" backgroundcolor="0 0 0" backgroundalpha="0.3" transparent="" texturereplace=""/>
+	<gadget name="shipsTimerBG" type="gadget" size1024="222 670 280 678" mouseovertext="$$32711$$" background="ui\ingame\ingame_ui_01" z="14" texturecoords="0.693359375 0.71484375 0.888671875 0.736328125"/>
+	<gadget name="shipsTimerFG" type="gadget" size1024="222 670 280 678" mouseovertext="$$32711$$" background="ui\ingame\ingame_ui_01" z="16" texturecoords="0.693359375 0.615234375 0.888671875 0.63671875"/>
+	<gadget name="XPNeeded-Value" hidden="" size1024="224 678 340 694" mouseovertext="XP needed for next shipment" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="0 255 0" textfont="NumbersFont" textfontsize="12" textjustifyleft="" textcentervert="">$$32711$$</gadget>
+</layout>

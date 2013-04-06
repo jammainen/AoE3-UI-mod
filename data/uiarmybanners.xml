@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+	<gadget name="armyBanner" type="armyBanner" size1024="0 0 1 1" transparent="" background="">
+		<gadget name="IdleVillagerBanner" type="stateButton" size1024="214 560 257 634" mouseovertext="$$41608$$Idle Villagers: {numIdle(AbstractVillager)}" z="1" sound="UI_DefaultPregameClickSet" statebuttonuseinternalstates="" activateondown="" hidden="" foreground="ui\banners\idle_villager" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\idle_villager"/>
+			<stateentry background="ui\banners\idle_villager_clicked"/>
+			<stateentry background="ui\banners\idle_villager_rollover"/>
+			<command>gadgetFlash("idleVillagerBanner") uiFindIdleType("AbstractVillager")</command>
+		</gadget>
+		<gadget name="armyBanner-unfurled0" type="stateButton" size1024="153 0 185 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled1" type="stateButton" size1024="189 0 221 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled2" type="stateButton" size1024="225 0 257 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled3" type="stateButton" size1024="261 0 293 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled4" type="stateButton" size1024="297 0 329 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled5" type="stateButton" size1024="333 0 365 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled6" type="stateButton" size1024="369 0 401 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled7" type="stateButton" size1024="405 0 437 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+		<gadget name="armyBanner-unfurled8" type="stateButton" size1024="441 0 473 80" z="51" statebuttonuseinternalstates="" activateondown="" foreground="ui\banners\banner_nongather" texturecoords="0 0 1 0.625">
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+			<stateentry background="ui\banners\banner_nongather"/>
+		</gadget>
+	</gadget>
+</layout>

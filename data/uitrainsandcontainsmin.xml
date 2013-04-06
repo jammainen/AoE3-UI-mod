@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+	<gadget name="trainsandcontains" type="trainsandcontains" size1024="0 0 0 0" z="157">
+		<gadget name="trainsandcontains-button00" type="button" size1024="804 592 836 624" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button01" type="button" size1024="840 592 872 624" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button02" type="button" size1024="876 592 908 624" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button03" type="button" size1024="912 592 944 624" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button04" type="button" size1024="948 592 980 624" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button05" type="button" size1024="984 592 1016 624" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button10" type="button" size1024="804 556 836 588" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button11" type="button" size1024="840 556 872 588" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button12" type="button" size1024="876 556 908 588" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button13" type="button" size1024="912 556 944 588" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button14" type="button" size1024="948 556 980 588" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button15" type="button" size1024="984 556 1016 588" z="159" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button20" type="button" size1024="804 520 836 552" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button21" type="button" size1024="840 520 872 552" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button22" type="button" size1024="876 520 908 552" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button23" type="button" size1024="912 520 944 552" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button24" type="button" size1024="948 520 980 552" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+		<gadget name="trainsandcontains-button25" type="button" size1024="984 520 1016 552" z="109" activateondown="">
+			<piechartfilling color="255 0 0 100" rotation="cw" fill="false"/>
+		</gadget>
+	</gadget>
+</layout>

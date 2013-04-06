@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+	<gadget name="minimapPanel" type="gadget" size1024="0 628 342 768" background="" z="10">
+		<gadget name="minimapPanel-Minimap-Back" type="gadget" size1024="0 628 220 768" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleVillager-Back" type="gadget" size1024="222 628 250 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleWagon-Back" type="gadget" size1024="252 628 280 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleLandMilitary-Back" type="gadget" size1024="282 628 310 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-IdleNavalMilitary-Back" type="gadget" size1024="312 628 340 644" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-HC-Back" type="gadget" size1024="222 646 280 678" transparent="" background="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="-Pop-Back" type="gadget" size1024="282 646 340 678" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="-Pop-Backie" type="gadget" size1024="252 680 280 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-BuyFood-Back" type="gadget" size1024="222 680 250 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-SellFood-Back" type="gadget" size1024="282 680 310 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+		<gadget name="minimapPanel-SellWood-Back" type="gadget" size1024="312 680 340 696" transparent="" backgroundcolor="0 0 0" backgroundalpha="0.5" outlinecolor="128 128 128" z="2"/>
+
+		<position name="AGameMinimap" size1024="9 566 212 768" windowzstyle="" z="15"/>
+		<gadget name="minimapPanel-map" type="gadget" size1024="22 632 152 765" z="10"/>
+		<gadget name="minimapPanel-chat" type="stateButton" z="16" size1024="0 708 64 772" texturecoords="0 0 1 1" mouseovertext="$$21431$$" anchortooltiptopright="" statebuttonuseinternalstates="" activateondown="" clickthrufile="ui\ingame\ingame_minimap_small_chat_normal_ypack" clickthrucoords="0 0 1 1">
+			<command>uiShowChatWindow()</command>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_normal_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_depressed_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_active_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_chat_active_ypack"/>
+		</gadget>
+		<gadget name="minimapPanel-flareButton" type="stateButton" z="16" size1024="0 708 64 772" texturecoords="0 0 1 1" mouseovertext="$$18424$$Click this button, and then click in the world to send a flare to all other players." anchortooltiptopright="" clampforeground="" clampbackground="" statebuttonuseinternalstates="" activateondown="" clickthrufile="ui\ingame\ingame_minimap_small_flare_normal_ypack" clickthrucoords="0 0 1 1">
+			<command>editMode("flare") uiSetProtoCursor("WaypointFlag")</command>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_normal_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_depressed_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_active_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_flare_active_ypack"/>
+		</gadget>
+		<gadget name="minimapPanel-FilterToggle" type="stateButton" z="16" size1024="156 708 220 772" mouseovertext="$$36021$$" anchortooltiptopright="" keepflashingonactivate="" statebuttonuseinternalstates="" activateondown="" textfont="SmallButtonFont" textfontsize="10" textcolor="255 255 255" background="" clickthrufile="ui\ingame\ingame_minimap_small_all_normal_ypack" clickthrucoords="0 0 1 1">
+			<leftcommand>setMinimapUnitFilter(-1)</leftcommand>
+		</gadget>
+		<gadget name="minimapPanel-explorerButton" type="stateButton" z="16" size1024="156 708 220 772" texturecoords="0 0 1 1" mouseovertext="$$48949$$" anchortooltiptopright="" clampforeground="" clampbackground="" statebuttonuseinternalstates="" activateondown="" clickthrufile="ui\ingame\ingame_minimap_small_tribute_normal_ypack" clickthrucoords="0 0 1 1">
+			<command>editMode("moveAllMilitary") uiSetProtoCursor("WaypointFlag")</command>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_normal_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_depressed_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_active_ypack"/>
+			<stateentry background="ui\ingame\ingame_minimap_small_tribute_active_ypack"/>
+		</gadget>
+	</gadget>
+	<gadget name="IdleVillager-Value" size1024="222 626 250 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(AbstractVillager)}</gadget>
+	<gadget name="IdleVillager-Button" type="button" z="100" size1024="222 628 250 644" mouseovertext="Idle Villagers" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("AbstractVillager")</command>
+	</gadget>
+	<gadget name="IdleWagon-Value" size1024="252 626 280 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 255" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractWagon)}</gadget>
+	<gadget name="IdleWagon-Button" type="button" z="100" size1024="252 628 280 644" mouseovertext="Idle Wagon" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("AbstractWagon")</command>
+	</gadget>
+	<gadget name="IdleLandMilitary-Value" size1024="282 626 310 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="0 255 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(LogicalTypeLandMilitary)}</gadget>
+	<gadget name="IdleLandMilitary-Button" type="button" z="100" size1024="282 628 310 644" mouseovertext="Idle Land Military" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("LogicalTypeLandMilitary")</command>
+	</gadget>
+	<gadget name="IdleNavalMilitary-Value" size1024="312 626 340 642" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="0 191 255" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(AbstractWarShip)}</gadget>
+	<gadget name="IdleNavalMilitary-Button" type="button" z="100" size1024="325 628 340 644" mouseovertext="Idle Naval Military" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>configSetInt("limitPitch",47) configSetInt("minZoom",29) configSetInt("normalZoom",450) configSetInt("maxZoom",400) cameraRotate() cameraRotate()</command>
+	</gadget>
+	<gadget name="IdleNavalMilitary-Button" type="button" z="100" size1024="312 628 325 644" mouseovertext="Idle Naval Military" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>configSetInt("limitPitch",89) configSetInt("minZoom",29) configSetInt("normalZoom",250) configSetInt("maxZoom",400) cameraRotate() cameraRotate()</command>
+	</gadget>
+	<gadget name="IdleNavalMilitary-Button" type="button" z="1" size1024="325 615 340 628" mouseovertext="Idle Naval Military" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>configSetInt("limitPitch",50) configSetInt("minZoom",29) configSetInt("normalZoom",80) configSetInt("maxZoom",400) cameraRotate() cameraRotate()</command>
+	</gadget>
+	<gadget name="CameraNormal1" type="Button" size1024="282 646 340 662" z="151" mouseovertext="$$32714$$" anchortooltiptopright="" sound="UI_DefaultPregameClickSet" foreground="">
+		<command>configSetInt("limitPitch",47) configSetInt("minZoom",29) configSetInt("normalZoom",50) configSetInt("maxZoom",60) cameraRotate() cameraRotate()</command>
+	</gadget>
+	<gadget name="CameraNormal2" type="Button" size1024="282 662 311 678" z="151" mouseovertext="Total Villager" anchortooltiptopright="" sound="UI_DefaultPregameClickSet" foreground="">
+		<command>uiFindType("AbstractVillager")</command>
+	</gadget>
+	<gadget name="CameraNormal3" type="Button" size1024="311 662 340 678" z="151" mouseovertext="Total Military" anchortooltiptopright="" sound="UI_DefaultPregameClickSet" foreground="">
+		<command>uiFindType("Military")</command>
+	</gadget>
+
+<gadget name="civtipsreveal" type="button" z="560" size1024="871 0 876 5" tooltiptext="Showtips" foreground="ui\record_game\add_bookmark_rollover">
+	<command>gadgetToggle("civtips")</command>
+</gadget>
+	
+
+<gadget name="civtips" type="gadget" background="" z="550" hidden="" size1024="860 7 876 23">
+<gadget name="openspansk" type="button" z="560" size1024="869 7 876 11" tooltiptext="Spanishtips" foreground="objects\flags\spanish_32">
+	<command>gadgetToggle("spanski") gadgetUnreal("India") gadgetUnreal("Japan") gadgetUnreal("livstok") gadgetUnreal("orig")</command>
+</gadget>
+
+<gadget name="opensind" type="button" z="560" size1024="869 13 876 17" tooltiptext="Indiantips" foreground="objects\flags\india">
+	<command>gadgetToggle("India") gadgetUnreal("spanski") gadgetUnreal("Japan") gadgetUnreal("livstok")  gadgetUnreal("orig")</command>
+</gadget>
+
+<gadget name="opensjapan" type="button" z="560" size1024="869 19 876 23" tooltiptext="Japantips" foreground="objects\flags\japan">
+	<command>gadgetToggle("Japan") gadgetUnreal("spanski") gadgetUnreal("India") gadgetUnreal("livstok")  gadgetUnreal("orig")</command>
+</gadget>
+
+<gadget name="openspansk" type="button" z="560" size1024="860 7 867 11" tooltiptext="Livstokhtips" foreground="units\animals\sheep\sheep_icon_64">
+	<command>gadgetToggle("livstok") gadgetUnreal("Japan") gadgetUnreal("spanski") gadgetUnreal("India") gadgetUnreal("orig")</command>
+</gadget>
+
+</gadget>
+
+
+
+	<gadget name="spanski" transparent="" type="gadget" background="" z="500" hidden="" size1024="222 678 280 694">
+	<gadget name="Missionary-Value" size1024="222 678 250 694" z="502" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 0 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(Missionary)}</gadget>
+	<gadget name="Missionary-Button" type="button" size1024="222 680 250 696" z="501" mouseovertext="Missionaries" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("Missionary")</command>
+	</gadget>
+
+	<gadget name="Box-Value" size1024="252 678 280 694" z="502" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 170 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(WarDog)}</gadget>
+	<gadget name="Box-Button" type="button" size1024="252 680 280 696" z="501" mouseovertext="War Dog" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("WarDog")</command>
+	</gadget>
+	</gadget>
+
+
+
+	<gadget name="livstok" type="gadget" background="" z="525" hidden="" size1024="222 678 280 694">
+	<gadget name="Idleherd-Value" size1024="222 678 250 694" z="526" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 0 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(Herdable)}</gadget>
+	<gadget name="idleherd-Button" type="button" size1024="222 680 250 696" z="525" mouseovertext="Idle cattle" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindIdleType("Herdable")</command>
+	</gadget>
+	<gadget name="herd" size1024="252 678 280 694" z="526" type="formatText"  datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 170 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(Herdable)}</gadget>
+	<gadget name="herda" type="button" size1024="252 680 280 696" z="525" mouseovertext="Num Cattle" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("Herdable")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="makevill" transparent="" type="gadget" background="" hidden="" size1024="992 402 1023 466">
+	<gadget name="center-Value" size1024="992 402 1023 433" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(TownCenter)}</gadget>
+	<gadget name="stokkaasdhy-1Button" type="button" z="501" backgroundcolor="0 0 0" size1024="992 402 1023 433" mouseovertext="Find town center" foreground="ui\techs\hc_teutonic_town_center\hc_teutonic_town_center" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("TownCenter")</command>
+	</gadget>
+	<gadget name="vill-Value" size1024="992 435 1023 466" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractVillager)}</gadget>
+
+	<gadget name="stokkadsfy-ss" type="button" z="501" backgroundcolor="0 0 0" size1024="992 435 1023 466" mouseovertext="Make villagers" foreground="units\villagers\villager_portrait" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("TownCenter") tis("Settler") tis("Coureur") tis("SettlerWagon") tis("SettlerNative") tis("ypSettlerAsian") tis("ypSettlerIndian") tis("ypSettlerJapanese")</command>
+	</gadget>
+	</gadget>
+
+
+	<gadget name="gervils" type="gadget" transparent="" background="" hidden="" size1024="992 468 1023 499">
+	<gadget name="weigon-Value" size1024="992 468 1023 499" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(SettlerWagon)}</gadget>
+	<gadget name="gersvdls" type="button" z="501" size1024="992 468 1023 499" backgroundcolor="0 0 0" mouseovertext="Make settler wagons" foreground="units\villagers\settler_wagon\settler_wagon_icon" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("Mill") tis("SettlerWagon")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="stokkay" type="gadget" transparent="" background="" hidden="" size1024="959 402 990 499">
+	<gadget name="stokkie-Value" size1024="959 402 990 433" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(Herdable)}</gadget>
+
+	<gadget name="stokkay-1Button" type="button" z="501" backgroundcolor="0 0 0" size1024="959 402 990 433" mouseovertext="Find livestock/farm/village" foreground="buildings\livestock pen\livestock_pen_icon" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("Farm") uiFindType("LivestockPen") uiFindType("ypSacredField") uiFindType("ypVillage")</command>
+	</gadget>
+	<gadget name="sheep-Value" size1024="959 435 990 466" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(Sheep)}</gadget>
+
+	<gadget name="stokkay-ss" type="button" z="501" size1024="959 435 990 466" backgroundcolor="0 0 0" mouseovertext="Make sheep/goat(g8)" foreground="units\animals\sheep\sheep_icon_64" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiSelectNumberGroup(8) tis("Sheep") tis("Sheep") tis("Sheep") tis("Sheep") tis("Sheep")</command>
+	</gadget>
+
+	<gadget name="cow-Value" size1024="959 468 990 499"  z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(Cow)}</gadget>
+
+	<gadget name="stokki-1button" type="button" backgroundcolor="0 0 0" size1024="959 468 990 499" mouseovertext="Make cow/buffalo(g9)"  foreground="units\animals\cow\cow_icon_64x64" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiSelectNumberGroup(9) tis("Cow") tis("Cow") tis("Cow") tis("Cow") tis("Cow")</command>
+	</gadget>
+	</gadget>
+
+
+	<gadget name="stokkayasianlame" transparent="" type="gadget" background="" hidden="" size1024="959 402 990 499">
+	<gadget name="stokkie-Value" size1024="959 402 990 433" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(Herdable)}</gadget>
+
+	<gadget name="stokkay-1Button" type="button" size1024="959 402 990 433" mouseovertext="Find livestock/farm/village" backgroundcolor="0 0 0" foreground="buildings\asian_civs\village\chinese_village_icon_64" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("Farm") uiFindType("LivestockPen") uiFindType("ypSacredField") uiFindType("ypVillage")</command>
+	</gadget>	
+	<gadget name="goat-Value" size1024="959 435 990 466" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(ypGoat)}</gadget>
+
+	<gadget name="stokkagy-ss" type="button" size1024="959 435 990 466" mouseovertext="Make sheep/goat(g8)" foreground="units\animals\goat\goat_icon_64" backgroundcolor="0 0 0" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiSelectNumberGroup(8) tis("ypGoat") tis("ypGoat") tis("ypGoat") tis("ypGoat") tis("ypGoat")</command>
+	</gadget>
+	<gadget name="buff-Value" size1024="959 468 990 499" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(ypWaterBuffalo)}</gadget>
+
+	<gadget name="stokkdsi-1button" type="button" size1024="959 468 990 499" mouseovertext="Make cow/buffalo(g9)" backgroundcolor="0 0 0" foreground="units\animals\water_buffalo\water_buffalo_icon_64" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiSelectNumberGroup(9) tis("ypWaterBuffalo") tis("ypWaterBuffalo") tis("ypWaterBuffalo") tis("ypWaterBuffalo") tis("ypWaterBuffalo")</command>
+	</gadget>
+	</gadget>
+
+
+
+	<gadget name="India" type="gadget" background="" z="505" hidden="" size1024="222 678 280 694">
+	<gadget name="Mansabdar-Value" size1024="222 678 250 694" z="507" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 0 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractMansabdar)}</gadget>
+	<gadget name="Mansabdar-Button" type="button" size1024="222 680 250 696" mouseovertext="Find Mansabdar" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("AbstractMansabdar") setSquadMode("StandGround")</command>
+	</gadget>
+	<gadget name="Box1-Value" size1024="252 678 280 694" z="506" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 170 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractResourceCrate)}</gadget>
+	<gadget name="Box1-Button" type="button" size1024="252 680 280 696" mouseovertext="Resource boxes" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("AbstractResourceCrate")</command>
+	</gadget>
+	</gadget>
+
+
+	<gadget name="Japan" type="gadget" background="" z="510" hidden="" size1024="222 678 280 694">
+	<gadget name="Daimyo-Value" size1024="222 678 250 694" z="512" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 0 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractDaimyo)}</gadget>
+	<gadget name="Daimyo-Button" type="button" size1024="222 680 250 696" mouseovertext="Find Daimyo"  foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("AbstractDaimyo") setSquadMode("StandGround")</command>
+	</gadget>
+	<gadget name="Box1-Value" size1024="252 678 280 694" z="511" type="formatText" datarefreshrate=".1" transparent="" texturereplace="" textcolor="255 170 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractResourceCrate)}</gadget>
+	<gadget name="Box1-Button" type="button" size1024="252 680 280 696" mouseovertext="Resource boxes" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("AbstractResourceCrate")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="orig" type="gadget" hidden="" background="" z="300" size1024="222 678 280 694">
+	<gadget name="Missionaryss-Value" size1024="222 678 250 694" z="312" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractHeavyCavalry)}</gadget>
+	<gadget name="Missionarasy-Button" type="button" size1024="222 680 250 696" mouseovertext="Heavy Cavalry" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("AbstractHeavyCavalry")</command>
+	</gadget>
+	<gadget name="Box-Valuesa" size1024="252 678 280 694" z="311" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="0 0 255" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractResourceCrate)}</gadget>
+	<gadget name="Box-Buttonas" type="button" size1024="252 680 280 696" mouseovertext="Resource boxes" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("AbstractResourceCrate")</command>
+	</gadget>
+	</gadget>
+
+
+	<gadget name="PopPopcap" type="formatText" size1024="280 646 342 662" datarefreshrate=".5" textcolor="255 255 255" z="109" mouseovertext="$$32714$$" anchortooltiptopright="" textfont="NumbersFont" textcenterhoriz="" textfontsize="12" background="">{totalPop} / {popcap}</gadget>
+	<gadget name="TotalVillger" type="formatText" size1024="282 662 311 678" datarefreshrate=".5" textcolor="255 255 0" z="150" textfont="NumbersFont" textcenterhoriz="" textfontsize="12" background="">{numUnits(AbstractVillager)} <command>uiFindType("AbstractVillager")</command></gadget>
+	<gadget name="TotalMilitary" type="formatText" size1024="311 662 340 678" datarefreshrate=".5" textcolor="255 0 0" z="150" textfont="NumbersFont" textcenterhoriz="" textfontsize="12" background="">{numUnits(Military)} <command>uiFindType("Military")</command></gadget>
+	<gadget name="shipsDisplay" type="textBox" transparent="" size1024="250 646 280 663" textcenterhoriz="" textcentervert="" datarefreshrate=".5" textcolor="255 255 255" z="21" textfont="TimerDisplays" textfontsize="16">{resource(ships)}</gadget>
+	<gadget name="uimain-homeCityToggle" type="stateButton" z="16" size1024="222 646 280 671" mouseovertext="$$43039$$" anchortooltiptopright="" keepflashingonactivate="" statebuttonuseinternalstates="" activateondown="" textfont="SmallButtonFont" textfontsize="10" textcolor="255 255 255" background="" sound="UI_DefaultPregameClickSet">
+		<leftcommand>toggleHomeCityView()</leftcommand>
+	</gadget>
+	<gadget name="shipsTimerBG" type="gadget" size1024="222 670 280 678" mouseovertext="$$32711$$" background="ui\ingame\ingame_ui_01" z="14" texturecoords="0.693359375 0.71484375 0.888671875 0.736328125"/>
+	<gadget name="shipsTimerFG" type="gadget" size1024="222 670 280 678" mouseovertext="$$32711$$" background="ui\ingame\ingame_ui_01" z="16" texturecoords="0.693359375 0.615234375 0.888671875 0.63671875"/>
+
+
+	<gadget name="Native-Value" size1024="282 678 310 694" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractNativeWarrior)}</gadget>
+	<gadget name="Native-Button" type="button" z="100" size1024="282 680 310 696" mouseovertext="Number of native warriors" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("AbstractNativeWarrior")</command>
+	</gadget>
+	<gadget name="Merc-Value" size1024="312 678 340 694" type="formatText" z="101" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 170 0" textfont="NumbersFont" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(MercType1)}</gadget>
+	<gadget name="Merc-Button" type="button" z="100" size1024="312 680 340 696" mouseovertext="Amount of dog soldiers, skull knights and mercenary natives" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("MercType1")</command>
+	</gadget>
+
+
+<gadget name="gattips" type="button" z="560" size1024="862 0 867 5" tooltiptext="Showtips" foreground="ui\record_game\add_bookmark_rollover">
+	<command>gadgetToggle("gatitips")</command>
+</gadget>
+
+<gadget name="gatitips" type="gadget" background="" z="550" hidden="" size1024="726 1 835 13">
+<gadget name="azpait" type="button" z="560" size1024="726 1 739 14"  backgroundcolor="0 0 0" tooltiptext="Aztec firepit" foreground="ui\Units\az_warchief_portrait">
+	<command>gadgetUnreal("makeorjia") gadgetUnreal("mannebdar") gadgetUnreal("shotguni") gadgetToggle("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Factoray") gadgetUnreal("Shrinecp") gadgetUnreal("Porce") gadgetUnreal("Pavillion") gadgetToggle("Azpit2") gadgetToggle("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetToggle("Giftdance1") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance3") gadgetUnreal("churcil") gadgetUnreal("spaiklass")</command>
+</gadget>
+
+<gadget name="siarpit" type="button" z="560" size1024="742 1 755 14" backgroundcolor="0 0 0" tooltiptext="Sioux firepit" foreground="ui\Units\sx_warchief_portrait">
+	<command>gadgetUnreal("makeorjia") gadgetUnreal("mannebdar") gadgetUnreal("shotguni") gadgetUnreal("Azpit") gadgetToggle("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Factoray") gadgetUnreal("Shrinecp") gadgetUnreal("Porce") gadgetUnreal("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetToggle("Sipit2") gadgetUnreal("Irpit2") gadgetToggle("Giftdance2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance1") gadgetUnreal("churcil") gadgetUnreal("spaiklass")</command>
+</gadget>
+
+<gadget name="iropitie" type="button" z="560" size1024="758 1 771 14" backgroundcolor="0 0 0" tooltiptext="Iroquois firepit" foreground="ui\Units\IRO_warchief_portrait">
+	<command>gadgetUnreal("makeorjia") gadgetUnreal("mannebdar") gadgetUnreal("shotguni") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetToggle("Irpit") gadgetUnreal("Factoray") gadgetUnreal("Shrinecp") gadgetUnreal("Porce") gadgetUnreal("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetToggle("Irpit2") gadgetToggle("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1") gadgetUnreal("churcil") gadgetUnreal("spaiklass")</command>
+</gadget>
+
+
+<gadget name="pavillis" type="button" z="560" size1024="806 1 819 14" backgroundcolor="0 0 0" tooltiptext="Golden pavillion tips" foreground="buildings\wonders\golden_pavillion\golden_pavillion_icon_politician">
+	<command>gadgetUnreal("mannebdar") gadgetUnreal("shotguni") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Factoray") gadgetUnreal("Porce") gadgetToggle("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1") gadgetUnreal("churcil") gadgetUnreal("spaiklass")</command>
+</gadget>
+
+<gadget name="makievillis" type="button" z="560" backgroundcolor="0 0 0" size1024="774 1 787 14" tooltiptext="Make villagers tooltips" foreground="units\villagers\villager_portrait">
+	<command>gadgetToggle("makevill")</command>
+</gadget>
+<gadget name="gervillis" type="button" z="560" backgroundcolor="0 0 0" size1024="790 1 803 14" tooltiptext="Settler wagon tips" foreground="units\villagers\settler_wagon\settler_wagon_icon">
+	<command>gadgetToggle("gervils")</command>
+</gadget>
+<gadget name="stokkie" type="button" z="560" size1024="822 1 835 14" backgroundcolor="0 0 0" tooltiptext="cowboom tips" foreground="buildings\livestock pen\livestock_pen_icon">
+	<command>gadgetToggle("stokkay") gadgetUnreal("stokkayasianlame")</command>
+</gadget>
+
+<gadget name="stokkayasianlaame" type="button" z="560" size1024="838 1 851 14" backgroundcolor="0 0 0" tooltiptext="cowboom tips" foreground="buildings\asian_civs\village\chinese_village_icon_64">
+	<command>gadgetToggle("stokkayasianlame") gadgetUnreal("stokkay")</command>
+</gadget>
+
+<gadget name="unctionlame" type="button" z="560" size1024="710 1 723 14" backgroundcolor="0 0 0" tooltiptext="Spanish tipsies" foreground="ui\techs\native\Unction">
+	<command>gadgetUnreal("makeorjia") gadgetUnreal("mannebdar") gadgetUnreal("shotguni") gadgetToggle("churcil") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1") gadgetUnreal("spaiklass")</command>
+</gadget>
+<gadget name="ispy" type="button" z="560" size1024="694 1 707 14" backgroundcolor="0 0 0" tooltiptext="Spyglass" foreground="ui\abilities\ability_spyglass">
+	<command>gadgetUnreal("makeorjia") gadgetUnreal("mannebdar") gadgetUnreal("shotguni") gadgetToggle("spaiklass") gadgetUnreal("churcil") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1")</command>
+</gadget>
+<gadget name="kalabdar" type="button" z="560" size1024="678 1 691 14" backgroundcolor="0 0 0" tooltiptext="Make mansabdar" foreground="ui\techs\asians\tech_passive_mansabdar_aura_icon_64">
+	<command>gadgetToggle("mannebdar") gadgetUnreal("shotguni") gadgetUnreal("spaiklass") gadgetUnreal("churcil") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1")</command>
+</gadget>
+<gadget name="haulikko" type="button" z="560" size1024="662 1 675 14" backgroundcolor="0 0 0" tooltiptext="Shogunate tips" foreground="buildings\wonders\imperial_palace\shogunate_icon_politician">
+	<command>gadgetUnreal("makeorjia") gadgetToggle("shotguni") gadgetUnreal("mannebdar") gadgetUnreal("spaiklass") gadgetUnreal("churcil") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Pavillion") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1")</command>
+</gadget>
+<gadget name="afrikaslaves" type="button" z="560" size1024="646 1 659 14" backgroundcolor="0 0 0" tooltiptext="Slavery" foreground="units\animals\lion_tailed_macaque\Liontailed_Macaque_icon_portrait">
+	<command>gadgetToggle("makeorjia") gadgetUnreal("shotguni") gadgetUnreal("spaiklass") gadgetUnreal("churcil") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Azpit2") gadgetUnreal("priesdance") gadgetUnreal("Sipit2") gadgetUnreal("Irpit2") gadgetUnreal("Giftdance3") gadgetUnreal("Giftdance2") gadgetUnreal("Giftdance1")</command>
+</gadget>
+<gadget name="spamnatii" type="button" z="560" size1024="630 1 643 14" backgroundcolor="0 0 0" tooltiptext="Make natives" foreground="units\natives\native_villager_icon_portrait">
+	<command>gadgetToggle("rautasky")</command>
+</gadget>
+<gadget name="tuhomuuri" type="button" z="560" size1024="614 1 627 14" backgroundcolor="0 0 0" tooltiptext="Destroy wall connectors" foreground="buildings\wall\wall_icon_64x64">
+	<command>gadgetToggle("Destroyconnectors")</command>
+</gadget>
+<gadget name="findstoff" type="button" z="560" size1024="598 1 611 14" backgroundcolor="0 0 0" tooltiptext="Map bookmarks" foreground="ui\eso\icons\tab_icons_search">
+	<command>gadgetToggle("fondi")</command>
+</gadget>
+</gadget>
+
+AbstractPet
+
+	<gadget name="makeorjia" type="gadget" transparent="" background="" hidden="" size1024="992 369 1023 400">
+       <gadget name="seppo-Value" size1024="992 369 1023 400" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractPet)}</gadget>
+	<gadget name="orjia-1Button" type="button" z="501" size1024="992 369 1023 400" background="units\animals\lion_tailed_macaque\Liontailed_Macaque_icon_portrait" mouseovertext="Make 'slaves'" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindAllOfType("Hero") tis("ypMonkDisciple", 5) tis("YPPetTiger", 5) tis("YPPetWhiteTiger", 5) tis("WarDog, 5") tis("NatBlowgunAmbusher", 5) setSquadMode("StandGround") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+		<gadget name="rautasky" type="gadget" transparent="" background="" hidden="" size1024="992 501 1023 532">
+       <gadget name="natsi-Value" size1024="992 501 1023 532" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractNativeWarrior)}</gadget>
+	<gadget name="natsi-1Button" type="button" z="501" size1024="992 501 1023 532" background="ui\techs\hc_native_warriors\hc_native_warriors" mouseovertext="Make natives(g7)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiSelectNumberGroup(7) tis("NatNavajoRifleman", 5) tis("NatHuaminca", 5) tis("NatBolasWarrior", 5) tis("ypNatWarElephant", 5) tis("ypNatChakram", 5) tis("ypNatTigerClaw", 5) tis("ypNatRattanShield", 5) tis("NatBlowgunWarrior", 5) tis("NatHolcanSpearman", 5) tis("NatLightningWarrior", 5) tis("NatBlackwoodArcher", 5) tis("NatRifleman", 5) tis("NatHorseArcher", 5) tis("ypNatSohei", 5) tis("NatClubman", 5) tis("NatTracker", 5) loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="shotguni" type="gadget" transparent="" background="" hidden="" size1024="992 369 1023 400">
+        <gadget name="seppo-Value" size1024="992 369 1023 400" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(AbstractDaimyo)}</gadget>
+	<gadget name="shotgun-1Button" type="button" z="501" size1024="992 369 1023 400" background="buildings\wonders\imperial_palace\shogunate_icon_politician" mouseovertext="Make daimyos" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("ypWJShogunate2") uiFindType("ypWJShogunate3") uiFindType("ypWJShogunate4") uiFindType("ypWJShogunate5") tis("ypDaimyoMototada") tis("ypShogunTokugawa") tis("ypDaimyoKiyomasa") tis("ypDaimyoMasamune") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="mannebdar" type="gadget" transparent="" background="" hidden="" size1024="959 303 1023 367">
+	<gadget name="mannebd-buttontoshq" type="button" size1024="992 270 1023 301" background="buildings\wonders\charminar_gate\charminar_gate_icon_politician" mouseovertext="Find charminar gate" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("ypWICharminarGate2") uiFindType("ypWICharminarGate3") uiFindType("ypWICharminarGate4") uiFindType("ypWICharminarGate5")</command>
+	</gadget>
+        <gadget name="seppo-Value" size1024="992 303 1023 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(ypSepoyMansabdar)}</gadget>
+	<gadget name="seppo-12button" type="button" z="501" size1024="992 303 1023 334" background="units\asians\indians\mansabdar\sepoy_mansabdar_icon_portrait" mouseovertext="Make mansabdar sepoy" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypWICharminarGate2") uiFindType("ypWICharminarGate3") uiFindType("ypWICharminarGate4") uiFindType("ypWICharminarGate5") tis("ypSepoyMansabdar") loadCamera("game")</command>
+	</gadget>	
+        <gadget name="kurki-Value" size1024="992 336 1023 367" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(ypNatMercGurkhaJemadar)}</gadget>
+	<gadget name="kurki-12Button" type="button" z="501" size1024="992 336 1023 367" background="units\asians\indians\mansabdar\gurkha_mansabdar_icon_portrait" mouseovertext="Make mansabdar gurkha" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypWICharminarGate2") uiFindType("ypWICharminarGate3") uiFindType("ypWICharminarGate4") uiFindType("ypWICharminarGate5") tis("ypNatMercGurkhaJemadar") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+<gadget name="fondi" type="gadget" size1024="516 1 593 14" hidden="" transparent="" background="">
+<gadget name="beisik" type="button" z="560" size1024="516 1 529 14" backgroundcolor="0 0 0" tooltiptext="Hide/reveal buttons" foreground="objects\flags\maltese_cross">
+	<command>gadgetToggle("pleisis")</command>
+</gadget>
+<gadget name="gruppe1" type="button" z="560" size1024="532 1 545 14" backgroundcolor="0 0 0" tooltiptext="Place 1" foreground="ui\command\tactics_melee_avl">
+	<command>saveCamera("game1")</command>
+</gadget>
+<gadget name="gruppe2" type="button" z="560" size1024="548 1 561 14" backgroundcolor="0 0 0" tooltiptext="Place 2" foreground="ui\techs\econmedia_manor\econmedia_manor">
+	<command>saveCamera("game2")</command>
+</gadget>
+<gadget name="gruppe3" type="button" z="560" size1024="564 1 577 14" backgroundcolor="0 0 0" tooltiptext="Place 3" foreground="ui\techs\hc_coehorn_mortars\hc_coehorn_mortars">
+	<command>saveCamera("game3")</command>
+</gadget>
+<gadget name="gruppe4" type="button" z="560" size1024="580 1 593 14" backgroundcolor="0 0 0" tooltiptext="Place 4" foreground="units\animals\cow\cow_icon_32x32">
+	<command>saveCamera("game4")</command>
+</gadget>
+</gadget>
+
+<gadget name="pleisis" type="gadget" size1024="301 590 327 616" hidden="" transparent="" background="">
+
+<gadget name="gruppe1" type="button" z="560" size1024="296 587 312 603" backgroundcolor="0 0 0" tooltiptext="Place 1" foreground="ui\command\tactics_melee_avl">
+	<command>loadCamera("game1")</command>
+</gadget>
+<gadget name="gruppe2" type="button" z="560" size1024="314 587 330 603" backgroundcolor="0 0 0" tooltiptext="Place 2" foreground="ui\techs\econmedia_manor\econmedia_manor">
+	<command>loadCamera("game2")</command>
+</gadget>
+<gadget name="gruppe3" type="button" z="560" size1024="296 605 312 621" backgroundcolor="0 0 0" tooltiptext="Place 3" foreground="ui\techs\hc_coehorn_mortars\hc_coehorn_mortars">
+	<command>loadCamera("game3")</command>
+</gadget>
+<gadget name="gruppe4" type="button" z="560" size1024="314 605 330 621" backgroundcolor="0 0 0" tooltiptext="Place 4" foreground="units\animals\cow\cow_icon_32x32">
+	<command>loadCamera("game4")</command>
+</gadget>
+</gadget>
+
+
+<gadget name="soebsja" type="button" z="560" size1024="710 1 723 14" hidden="" backgroundcolor="0 0 0" tooltiptext="Spanish tipsies" foreground="ui\techs\native\Unction">
+	<command>gadgetToggle("churcil") gadgetUnreal("Azpit") gadgetUnreal("Sipit") gadgetUnreal("Irpit") gadgetUnreal("Pavillion")</command>
+</gadget>
+
+
+<gadget name="freeransomi" type="button" z="560" size1024="694 1 707 14" hidden="" backgroundcolor="0 0 0" tooltiptext="Revive explorer" foreground="units\explorers\explorer_icon">
+	<command>gadgetToggle("froo")</command>
+</gadget>
+
+
+	<gadget name="churcil" transparent="" type="gadget" background="" hidden="" size1024="922 303 1023 400">
+	<gadget name="Fsindfactory-1Button" type="button" size1024="992 303 1023 334" backgroundcolor="0 0 0" mouseovertext="Find church" foreground="buildings\church\church_icon" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("Church")</command>
+	</gadget>
+
+	<gadget name="missionary-Value" size1024="992 336 1023 367" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(Missionary)}</gadget>
+	<gadget name="Foadsod-1button" type="button" size1024="992 336 1023 367" backgroundcolor="0 0 0"  mouseovertext="Make Missionaries" foreground="units\priests\spanish_priest_portrait" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("Church") tis("Missionary", 5) tis("Missionary", 5) loadCamera("game")</command>
+	</gadget>
+	<gadget name="dog-Value" size1024="992 369 1023 400" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(WarDog)}</gadget>
+
+	<gadget name="Goadsld-1button" type="button" size1024="992 369 1023 400" backgroundcolor="0 0 0" mouseovertext="Make wardogs" foreground="units\wardogs\war_dog_icon_64x64" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("Hero") tis("WarDog", 5) setSquadMode("StandGround") loadCamera("game")</command>
+	</gadget>
+
+	</gadget>
+
+
+
+	<gadget name="froo" type="gadget" background="" hidden="" size1024="959 369 990 400">
+	<gadget name="revaa-1Button" type="button" size1024="959 369 990 400" backgroundcolor="0 0 0" mouseovertext="Revive explorer" foreground="ui\command\ransom_explorer" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("Hero") setSquadMode("InfantryDefend") setSquadMode("CavalryDefend") setSquadMode("CavalryMelee") setSquadMode("CavalryMelee") setSquadMode("Volley")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="spaiklass" type="gadget" transparent="" background="" hidden="" size1024="992 369 1023 400">
+	<gadget name="spy-1Button" type="button" size1024="992 369 1023 400" background="ui\abilities\ability_spyglass" mouseovertext="Use spy glass(2 minute recharge)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("Hero") doAbilityInSelected("PowerLOS") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="Azpit" type="gadget" transparent="" background="" hidden="" size1024="992 270 1023 400">
+
+	<gadget name="slot3-1Button" type="button" size1024="992 270 1023 301" background="ui\fire_pit\war_dance" mouseovertext="Set to War dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("WarDance") loadCamera("game")</command>
+	</gadget>
+	<gadget name="building-Value" size1024="992 303 1023 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="10" textcenterhoriz="" textcentervert="">{numUnits(Building)}</gadget>
+
+	<gadget name="slot6-1Button" type="button" size1024="992 303 1023 334" background="ui\fire_pit\town_dance" mouseovertext="Set to Town dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("CityDance") loadCamera("game")</command>
+	</gadget>
+
+	<gadget name="slot8-1Button" type="button" size1024="992 336 1023 367" background="ui\fire_pit\warchief_aztec" mouseovertext="Warchief dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("WarChiefDance") unitSetTactic("WarChiefDanceSioux") unitSetTactic("WarChiefDanceAztec") loadCamera("game")</command>
+	</gadget>
+	<gadget name="dancer-Value" size1024="992 369 1023 400" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numDancers}</gadget>
+	<gadget name="Findpit-1Button" type="button" size1024="992 369 1023 400" background="ui\buildings\Fire_Pit_icon" mouseovertext="Find Firepit" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("FirePit")</command>
+	</gadget>
+	</gadget>
+
+
+
+	<gadget name="Azpit2" type="gadget" transparent="" background="" hidden="" size1024="959 270 990 367">
+	<gadget name="slot2-1Button" type="button" size1024="959 270 990 301" background="ui\fire_pit\fertility" mouseovertext="Set to Fertility dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("FertilityDance") loadCamera("game")</command>
+	</gadget>
+	<gadget name="skull-Value" size1024="959 303 990 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(xpSkullKnight)}</gadget>
+	<gadget name="slot5-1Button" type="button" size1024="959 303 990 334" background="ui\fire_pit\garland_wars" mouseovertext="Spawn Skull Knights" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("GarlandWarDance") unitSetTactic("EarthMotherDance") unitSetTactic("WarDanceSong") loadCamera("game")</command>
+	</gadget>
+	<gadget name="unitsa-Value" size1024="959 336 990 367" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numIdle(Unit)}</gadget>
+	<gadget name="slot7-1Button" type="button" size1024="959 336 990 367" background="ui\fire_pit\heal" mouseovertext="" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("FounderDance") unitSetTactic("FireDance") unitSetTactic("HealingDance") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+
+
+
+
+	<gadget name="Sipit" type="gadget" background="" transparent="" hidden="" size1024="992 270 1023 400">
+	<gadget name="slot3-2Button" type="button" size1024="992 270 1023 301" background="ui\fire_pit\war_dance" mouseovertext="Set to War dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("WarDance") loadCamera("game")</command>
+	</gadget>
+	<gadget name="building-Value" size1024="992 303 1023 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="10" textcenterhoriz="" textcentervert="">{numUnits(Building)}</gadget>
+
+	<gadget name="slot6-2Button" type="button" size1024="992 303 1023 334" background="ui\fire_pit\town_dance" mouseovertext="Set to Town dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("CityDance") loadCamera("game")</command>
+	</gadget>
+
+	<gadget name="slot8-2Button" type="button" size1024="992 336 1023 367" background="ui\fire_pit\warchief_sioux" mouseovertext="Warchief dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("WarChiefDance") unitSetTactic("WarChiefDanceSioux") unitSetTactic("WarChiefDanceAztec") loadCamera("game")</command>
+	</gadget>
+	<gadget name="dancer-Value" size1024="992 369 1023 400" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numDancers}</gadget>
+	<gadget name="Findpit-2Button" type="button" size1024="992 369 1023 400" background="ui\buildings\Fire_Pit_icon" mouseovertext="Find Firepit" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("FirePit")</command>
+	</gadget>
+	</gadget>
+
+
+
+	<gadget name="Sipit2" type="gadget" background="" transparent="" hidden="" size1024="959 270 990 367">
+	<gadget name="slot2-1Button" type="button" size1024="959 270 990 301" background="ui\fire_pit\fertility" mouseovertext="Set to Fertility dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("FertilityDance") loadCamera("game")</command>
+	</gadget>
+	<gadget name="dog-Value" size1024="959 303 990 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(xpDogSoldier)}</gadget>
+
+		<gadget name="slot5-2Button" type="button" size1024="959 303 990 334" background="ui\fire_pit\morning_wars" mouseovertext="Spawn Dog Soldiers" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("GarlandWarDance") unitSetTactic("EarthMotherDance") unitSetTactic("WarDanceSong") loadCamera("game")</command>
+	</gadget>
+	<gadget name="slot7-2Button" type="button" size1024="959 336 990 367" background="ui\fire_pit\fire" mouseovertext="Set to fire dance (boosts siege)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("FounderDance") unitSetTactic("FireDance") unitSetTactic("HealingDance") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+
+
+
+	<gadget name="Irpit" type="gadget" background="" transparent="" hidden="" size1024="992 270 1023 400">
+	<gadget name="slot3-3Button" type="button" size1024="992 270 1023 301" background="ui\fire_pit\war_dance" mouseovertext="Set to War dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("WarDance") loadCamera("game")</command>
+	</gadget>	
+	<gadget name="building-Value" size1024="992 303 1023 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="10" textcenterhoriz="" textcentervert="">{numUnits(Building)}</gadget>
+
+	<gadget name="slot6-3Button" type="button" size1024="992 303 1023 334" background="ui\fire_pit\town_dance" mouseovertext="Set to Town dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("CityDance") loadCamera("game")</command>
+	</gadget>
+
+	<gadget name="slot8-3Button" type="button" size1024="992 336 1023 367" background="ui\fire_pit\warchief_iroquois" mouseovertext="Warchief dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("WarChiefDance") unitSetTactic("WarChiefDanceSioux") unitSetTactic("WarChiefDanceAztec") loadCamera("game")</command>
+	</gadget>
+	<gadget name="dancer-Value" size1024="992 369 1023 400" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 0 0" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numDancers}</gadget>
+	<gadget name="Findpit-3Button" type="button" size1024="992 369 1023 400" background="ui\buildings\Fire_Pit_icon" mouseovertext="Find Firepit" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("FirePit")</command>
+	</gadget>
+	</gadget>
+
+
+
+	<gadget name="Irpit2" type="gadget" background="" transparent="" hidden="" size1024="959 270 990 367">
+	<gadget name="slot2-2Button" type="button" size1024="959 270 990 301" background="ui\fire_pit\fertility" mouseovertext="Set to Fertility dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("FertilityDance") loadCamera("game")</command>
+	</gadget>
+	<gadget name="founder-Value" size1024="959 303 990 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{totalPop}</gadget>
+
+	<gadget name="slot5-3Button" type="button" size1024="959 303 990 334" background="ui\fire_pit\earth_mother" mouseovertext="Set to Mother Earth dance(boosts poppulation)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("GarlandWarDance") unitSetTactic("EarthMotherDance") unitSetTactic("WarDanceSong") loadCamera("game")</command>
+	</gadget>
+
+	<gadget name="founderi-Value" size1024="959 336 990 367" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(xpBuilder)}</gadget>
+
+	<gadget name="slot7-3Button" type="button" size1024="959 336 990 367" background="ui\fire_pit\founder" mouseovertext="Spawn travois" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("FounderDance") unitSetTactic("FireDance") unitSetTactic("HealingDance") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+
+
+
+	<gadget name="Giftdance1" type="gadget" background="" transparent="" hidden="" size1024="926 270 957 301">
+	<gadget name="expie-Value" size1024="926 270 957 301" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="6" textcenterhoriz="" textcentervert="">{xpShipmentProgressionString}</gadget>
+	<gadget name="slot1-3Button" type="button" size1024="926 270 957 301" background="ui\fire_pit\gifts" mouseovertext="Set to Gift dance(XP)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("GiftDance") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="Giftdance2" type="gadget" background="" transparent="" hidden="" size1024="926 270 957 301">
+	<gadget name="expie-Value" size1024="926 270 957 301" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="6" textcenterhoriz="" textcentervert="">{xpShipmentProgressionString}</gadget>
+	<gadget name="slot1-3Button" type="button" size1024="926 270 957 301" background="ui\fire_pit\gifts" mouseovertext="Set to Gift dance(XP)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("GiftDance") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="Giftdance3" type="gadget" transparent="" background="" hidden="" size1024="926 270 957 301">
+	<gadget name="expie-Value" size1024="926 270 957 301" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="6" textcenterhoriz="" textcentervert="">{xpShipmentProgressionString}</gadget>
+	<gadget name="slot1-3Button" type="button" size1024="926 270 957 301" background="ui\fire_pit\gifts" mouseovertext="Set to Gift dance(XP)" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("GiftDance") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="priesdance" type="gadget" transparent="" background="" hidden="" size1024="926 303 957 334">
+	<gadget name="warpriest-Value" size1024="926 303 957 334" z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(xpMedicineManAztec)}</gadget>
+	<gadget name="warpriest" type="button" size1024="926 303 957 334" background="ui\fire_pit\holy_aztec" mouseovertext="Set to Warrior Priest dance" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game")  uiFindType("FirePit") unitSetTactic("HolyDanceAztec") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+
+
+
+	<gadget name="Factoray" type="gadget" background="" hidden="" size1024="922 270 1023 466">
+	<gadget name="Findfactory-1Button" type="button" size1024="992 270 1023 301" mouseovertext="Find factory" foreground="buildings\factory\factory_icon" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindAllOfType("Factory")</command>
+	</gadget>
+	<gadget name="Food-1button" type="button" size1024="992 303 1023 334" mouseovertext="Set to Food" foreground="ui\command\factory_produce_food" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindAllOfType("Factory") unitSetTactic("Food") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Gold-1button" type="button" size1024="992 336 1023 367" mouseovertext="Set to Gold" foreground="ui\command\factory_produce_coin" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindAllOfType("Factory") unitSetTactic("Normal") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Wood-1Button" type="button" size1024="992 369 1023 400" mouseovertext="Set to Wood" foreground="ui\command\factory_produce_wood" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindAllOfType("Factory") unitSetTactic("Wood") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Heavyart-1Button" type="button" size1024="992 402 1023 433" mouseovertext="Set to Heavy Artillery" foreground="ui\command\factory_produce_heavy_art" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindAllOfType("Factory") unitSetTactic("Cannon") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+	<gadget name="Shrinecp" type="gadget" background="" hidden="" size1024="959 270 990 466">
+	<gadget name="Shrine-buttontoshq" type="button" size1024="959 270 990 301" background="ui\techs\asians\tech_toshogu_passive_ability" mouseovertext="Find toshogu shrine" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("GiantBuddha")</command>
+	</gadget>
+	<gadget name="Food-12button" type="button" size1024="959 303 990 334" background="ui\command\factory_produce_food" mouseovertext="Set to Food" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypShrineJapanese") unitSetTactic("ShrineFood") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Gold-12button" type="button" size1024="959 336 990 367" background="ui\command\factory_produce_coin" mouseovertext="Set to Gold" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypShrineJapanese") unitSetTactic("ShrineGold") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Wood-12Button" type="button" size1024="959 369 990 400" background="ui\command\factory_produce_wood" mouseovertext="Set to Wood" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypShrineJapanese") unitSetTactic("ShrineWood") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+
+	<gadget name="Porce" type="gadget" background="" hidden="" size1024="959 270 990 466">
+	<gadget name="Porce-buttontoshq" type="button" size1024="959 270 990 301" background="buildings\wonders\porcelain_tower\porcelain_tower_icon_politician" mouseovertext="Find Porcelain tower" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("ypWCPorcelainTower2") uiFindType("ypWCPorcelainTower3") uiFindType("ypWCPorcelainTower4") uiFindType("ypWCPorcelainTower5")</command>
+	</gadget>
+	<gadget name="fFood-124button" type="button" size1024="959 303 990 334" background="ui\command\factory_produce_food" mouseovertext="Set to Food" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+			<command>saveCamera("game") uiFindType("ypWCPorcelainTower2") uiFindType("ypWCPorcelainTower3") uiFindType("ypWCPorcelainTower4") uiFindType("ypWCPorcelainTower5") unitSetTactic("WonderFood") loadCamera("game")</command>
+	</gadget>
+	<gadget name="dGold-12button" type="button" size1024="959 336 990 367" background="ui\command\factory_produce_coin" mouseovertext="Set to Gold" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+			<command>saveCamera("game") uiFindType("ypWCPorcelainTower2") uiFindType("ypWCPorcelainTower3") uiFindType("ypWCPorcelainTower4") uiFindType("ypWCPorcelainTower5") unitSetTactic("WonderCoin") loadCamera("game")</command>
+	</gadget>
+	<gadget name="sWood-12Button" type="button" size1024="959 369 990 400" background="ui\command\factory_produce_wood" mouseovertext="Set to Wood" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+			<command>saveCamera("game") uiFindType("ypWCPorcelainTower2") uiFindType("ypWCPorcelainTower3") uiFindType("ypWCPorcelainTower4") uiFindType("ypWCPorcelainTower5") unitSetTactic("WonderWood") loadCamera("game")</command>
+	</gadget>
+	<gadget name="aRainvow-12Button" type="button" size1024="959 402 990 433" background="ui\command\tactic_rainbow_trickle_off" mouseovertext="Set to Rainbow" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+			<command>saveCamera("game") uiFindType("ypWCPorcelainTower2") uiFindType("ypWCPorcelainTower3") uiFindType("ypWCPorcelainTower4") uiFindType("ypWCPorcelainTower5") unitSetTactic("WonderRainbow") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+	<gadget name="Pavillion" type="gadget" transparent="" background="" hidden="" size1024="959 303 1023 367">
+	<gadget name="Pave-buttontoshq" type="button" size1024="992 270 1023 301" background="buildings\wonders\golden_pavillion\golden_pavillion_icon_politician" mouseovertext="Find toshogu shrine" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>uiFindType("ypWJGoldenPavillion2") uiFindType("ypWJGoldenPavillion3") uiFindType("ypWJGoldenPavillion4") uiFindType("ypWJGoldenPavillion5")</command>
+	</gadget>
+	<gadget name="Pavil-12button" type="button" size1024="959 303 990 334" background="ui\techs\asians\gold_range_dmg" mouseovertext="Set to boost ranged attack" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypWJGoldenPavillion2") uiFindType("ypWJGoldenPavillion3") uiFindType("ypWJGoldenPavillion4") uiFindType("ypWJGoldenPavillion5") unitSetTactic("RangeDamage") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Pava3-12button" type="button" size1024="992 303 1023 334" background="ui\techs\asians\gold_hand_dmg" mouseovertext="Set to boost melee attack" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypWJGoldenPavillion2") uiFindType("ypWJGoldenPavillion3") uiFindType("ypWJGoldenPavillion4") uiFindType("ypWJGoldenPavillion5") unitSetTactic("HandDamage") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Pava332-12Button" type="button" size1024="959 336 990 367" background="ui\techs\asians\gold_unit_speed" mouseovertext="Set to boost speed" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypWJGoldenPavillion2") uiFindType("ypWJGoldenPavillion3") uiFindType("ypWJGoldenPavillion4") uiFindType("ypWJGoldenPavillion5") unitSetTactic("UnitSpeed") loadCamera("game")</command>
+	</gadget>
+	<gadget name="Pava-12Button" type="button" size1024="992 336 1023 367" background="ui\techs\asians\gold_unit_hp" mouseovertext="Set to hitpoints" foreground="" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindType("ypWJGoldenPavillion2") uiFindType("ypWJGoldenPavillion3") uiFindType("ypWJGoldenPavillion4") uiFindType("ypWJGoldenPavillion5") unitSetTactic("UnitHitpoints") loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+	<gadget name="Destroyconnectors" type="gadget" background="" hidden="" size1024="959 501 990 532">
+	<gadget name="muuri-Value" size1024="959 501 990 532"  z="502" type="formatText" datarefreshrate=".5" transparent="" texturereplace="" textcolor="255 255 255" textfont="TimerDisplays" textfontsize="12" textcenterhoriz="" textcentervert="">{numUnits(WallConnector)}</gadget>
+	<gadget name="tuhoatornimuurit" type="button" size1024="959 501 990 532" mouseovertext="Find factory" foreground="buildings\wall\wall_icon_64x64" sound="UI_DefaultPregameClickSet" activateondown="">
+		<command>saveCamera("game") uiFindAllOfType("WallConnector") uiDeleteAllSelectedUnits loadCamera("game")</command>
+	</gadget>
+	</gadget>
+
+
+</layout>
